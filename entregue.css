@@ -101,7 +101,7 @@ h1{
   border-radius:10px;
 }
 h3{
-  color:#4da6ff; 
+  color:#ffffff; 
   font-size:22px;
   font-weight:bold;
   text-align:center;
@@ -130,7 +130,7 @@ h3{
 }
 
 body{
-  background:url("starlink.jpg") no-repeat center center;
+  background:url("StarlinkG.jpg") no-repeat center center;
   background-size:cover;
   background-attachment:fixed;
   margin:0;
