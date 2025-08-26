@@ -1,45 +1,90 @@
+/* === Base: botão genérico com variáveis por botão === */
 a.btn{
+  /* layout */
   display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  width:200px;
-  height:120px;
+  align-items:var(--align, flex-end);
+  justify-content:var(--justify, center);
+
+  /* tamanho (customizável por botão) */
+  width:var(--w, 200px);
+  height:var(--h, 120px);
+  border-radius:var(--radius, 15px);
+
+  /* posicionamento fino dentro do grid (opcional) */
+  margin-top:var(--mt, 0);
+  margin-right:var(--mr, 0);
+  margin-bottom:var(--mb, 0);
+  margin-left:var(--ml, 0);
+
+  /* imagem de fundo */
   text-decoration:none;
-  border-radius:15px;
   overflow:hidden;
+  background-image:var(--bg, none);
   background-size:cover;
-  background-position:center top;
+  background-position:var(--bgpos, center top);
   background-repeat:no-repeat;
   position:relative;
-  color:#fff;
+
+  /* visual */
+  color:var(--text, #fff);
   font-weight:bold;
-  box-shadow:0 4px 12px rgba(0,0,0,.4);
+  box-shadow:var(--shadow, 0 4px 12px rgba(0,0,0,.4));
   transition:transform .2s;
 }
 a.btn:hover{ transform:scale(1.05); }
 
 a.btn em{
   width:100%;
-  background:rgba(0,0,0,.6);
-  padding:6px;
-  font-size:14px;
-  text-align:center;
-  border-radius:0 0 15px 15px;
+  background:var(--em-bg, rgba(0,0,0,.6));
+  color:var(--em-color, #fff);
+  padding:var(--em-pad, 6px);
+  font-size:var(--em-fs, 14px);
+  text-align:var(--em-align, center);
+  border-radius:0 0 var(--radius, 15px) var(--radius, 15px);
 }
 
-.btn-gabriel{ background-image:url("Gabriel.jpg"); background-position:center 28%; }
-.btn-matheus{ background-image:url("Matheus.jpg"); background-position:center 24%; }
-.btn-paulo{   background-image:url("Paulo.jpg");   background-position:center 30%; }
-.btn-nathan{  background-image:url("Nathan.jpg");  background-position:center 22%; }
-.btn-adriano{ background-image:url("Adriano.png"); background-position:center 35%; }
-.btn-starlink{background-image:url("starlink2.jpg");}
-.btn-canva{   background-image:url("canvaLogo3.webp");}
+/* === Botões individuais (cada um pode sobrescrever o que quiser) === */
+.btn-gabriel{
+  --bg: url("Gabriel.jpg");
+  /* Rosto visível sem cortar: levemente mais alto e central */
+  --bgpos: center 18%;
+}
 
+.btn-matheus{
+  --bg: url("Matheus.jpg");
+  --bgpos: center 24%;
+}
+
+.btn-paulo{
+  --bg: url("Paulo.jpg");
+  --bgpos: center 30%;
+}
+
+.btn-nathan{
+  --bg: url("Nathan.jpg");
+  --bgpos: center 22%;
+}
+
+.btn-adriano{
+  --bg: url("Adriano.png");
+  /* Rosto visível: mais para a região centro-baixa */
+  --bgpos: center 42%;
+}
+
+.btn-starlink{
+  --bg: url("starlink2.jpg");
+}
+
+.btn-canva{
+  --bg: url("canvaLogo3.webp");
+}
+
+/* === Grid / Estrutura da página (inalterada) === */
 .links-container{
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap:40px;
-  justify-content:start;   
+  justify-content:start;
   align-items:start;
   padding:20px;
 }
@@ -70,9 +115,9 @@ h3{
 }
 .linkedin-grid{
   display:grid;
-  grid-auto-flow:column;                 
-  grid-template-rows: repeat(3, max-content); 
-  gap:15px 20px;                         
+  grid-auto-flow:column;
+  grid-template-rows: repeat(3, max-content);
+  gap:15px 20px;
   justify-content:start; 
 }
 
